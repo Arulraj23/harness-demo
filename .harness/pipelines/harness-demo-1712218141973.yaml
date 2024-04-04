@@ -33,3 +33,11 @@ pipeline:
             type: Docker
             spec: {}
         type: CI
+        delegateSelectors:
+          - docker-delegate
+        when:
+          pipelineStatus: Success
+        strategy:
+          repeat:
+            times: 6
+            maxConcurrency: 3
