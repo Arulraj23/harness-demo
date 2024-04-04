@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_harness_demo_1712218161936-push-trigger-input-set
+  identifier: Build_harness_demo_1712218161936pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: KMCSampleProject1
+  pipeline:
+    identifier: Build_harness_demo_1712218161936
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
