@@ -1,0 +1,39 @@
+pipeline:
+  name: Clone-My-Git-Repo
+  identifier: CloneMyGitRepo
+  projectIdentifier: KMCSampleProject1
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: Clone
+        identifier: Clone
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Windows
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: vpcprovisioning
+                    repoName: harness-demo
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
+  properties:
+    ci:
+      codebase:
+        connectorRef: vpcprovisioning
+        repoName: harness-demo
+        build: <+input>
